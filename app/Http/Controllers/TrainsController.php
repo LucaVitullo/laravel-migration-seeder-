@@ -7,8 +7,9 @@ use App\Train;
 
 class TrainsController extends Controller
 {
-    public function index(){
-        $trains=train::all();
-        return view('visualizza_treni');
+    public function index()
+    {
+        $trains = Train::where('data_di_partenza', 'like', '2022-05-23')->get();
+        return view('visualizza_treni', ['arrayTreni' => $trains]);
     }
 }
